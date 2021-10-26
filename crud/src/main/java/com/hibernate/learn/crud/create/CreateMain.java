@@ -1,4 +1,4 @@
-package com.hibernate.learn.create;
+package com.hibernate.learn.crud.create;
 
 public class CreateMain {
     public static void main(String[] args){
