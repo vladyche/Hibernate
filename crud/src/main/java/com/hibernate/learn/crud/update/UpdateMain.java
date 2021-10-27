@@ -17,12 +17,15 @@ public class UpdateMain {
         Session session = sessionFactory.getCurrentSession();
 
         try{
+            //begin transaction
             session.beginTransaction();
 
+            //update
             User user = session.get(User.class, 1L);
             user.setFirstName("NewFirstName");
             user.setLastName("NewLastName");
 
+            //commit the transaction
             session.getTransaction().commit();
         }catch (Exception e){
             e.printStackTrace();
