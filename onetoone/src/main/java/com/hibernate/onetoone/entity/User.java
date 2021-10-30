@@ -16,7 +16,8 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    //one to one with LAZY fetch
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "user_link_id")
     private UserLink userLink;
 
