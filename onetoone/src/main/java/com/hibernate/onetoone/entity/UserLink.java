@@ -19,6 +19,10 @@ public class UserLink {
     @Column(name = "youtube")
     private String youTube;
 
+    //READ User with fetch EAGER
+    @OneToOne(mappedBy = "userLink", fetch = FetchType.EAGER)
+    private User user;
+
     public UserLink(){}
 
     public long getId() {
@@ -51,6 +55,14 @@ public class UserLink {
 
     public void setYouTube(String youTube) {
         this.youTube = youTube;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
