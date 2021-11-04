@@ -18,22 +18,23 @@ public class CreateMain {
         //session
         Session session = sessionFactory.getCurrentSession();
 
-        //prepare objects
         Menu menu = new Menu();
-        menu.setName("Top Menu");
+        menu.setName("New Menu");
 
-        Link link1 = new Link();
-        link1.setText("About");
-        link1.setHref("about");
-        link1.setMenu(menu);
-
-        Link link2 = new Link();
-        link2.setText("Contacts");
-        link2.setHref("contacts");
-        link2.setMenu(menu);
+        Link link = new Link();
+        link.setText("News");
+        link.setHref("news");
 
         try{
             session.beginTransaction();
+
+            //create new menu
+            session.save(menu);
+
+            //add link for menu with id=1
+            Menu m = session.get(Menu.class, 1L);
+            link.setMenu(m);
+            session.save(link);
 
             session.getTransaction().commit();
         }catch (Exception e){

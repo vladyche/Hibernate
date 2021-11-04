@@ -46,12 +46,6 @@ public class Menu {
         this.links = links;
     }
 
-//    public void add(Link link){
-//        if(links == null) links = new ArrayList<>();
-//        links.add(link);
-//        link.setMenu(this);
-//    }
-
     @Override
     public String toString() {
         return "Menu{" +
