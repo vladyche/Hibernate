@@ -21,6 +21,7 @@ public class DeleteMain {
         Session session = sessionFactory.getCurrentSession();
 
         try{
+            //begin transaction
             session.beginTransaction();
 
             //DELETE Menu with id=1
@@ -39,6 +40,7 @@ public class DeleteMain {
             Link link = session.get(Link.class, 1L);
             session.delete(link);
 
+            //commit the transaction
             session.getTransaction().commit();
         }catch (Exception e){
             e.printStackTrace();
